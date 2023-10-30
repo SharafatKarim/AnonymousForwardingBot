@@ -55,7 +55,9 @@ GROUP_ID=-XXXXXXXXX
 ```
 Thereafter, you need to specify and tell telegram where your bot should direct the messages it received to. Do so by simply visiting this url (without the {, })
 
+```
 https://api.telegram.org/bot{your_bot_token}/setWebhook?url={your_netlify_domain_url}/api/bot
+```
 
 If it is set up correctly, it should respond back with,
 
