@@ -1,6 +1,10 @@
 # Telegram Anonymous Forwarding Bot
 
-This is a simple Telegram bot built with Node.js that forwards all its messages to a specific group, ensuring the privacy of your users. The bot is hosted on Netlify and is free to use forever. To set up the bot, you only need to configure two environment variables: `BOT_TOKEN` and `GROUP_ID`.
+This is a simple Telegram bot built with Node.js that forwards all its messages to a specific group, ensuring the privacy of your users. 
+
+![AnonymousForwardingBot](https://socialify.git.ci/SharafatKarim/AnonymousForwardingBot/image?description=1&descriptionEditable=Telegram%20anonymous%20text%20forwarding%20bot&font=Source%20Code%20Pro&forks=1&issues=1&language=1&name=1&owner=1&pattern=Floating%20Cogs&pulls=1&stargazers=1&theme=Auto)
+
+> The bot can be hosted on Netlify and is free to use forever in this case. To set up the bot, you only need to configure two environment variables: `BOT_TOKEN` and `GROUP_ID`.
 
 ## Prerequisites
 
