@@ -26,12 +26,8 @@ process.once('SIGINT', () => bot.stop('SIGINT'))
 process.once('SIGTERM', () => bot.stop('SIGTERM'))
 
 bot.on(message('text'), async (ctx) => {
-    // return ctx.reply(ctx.message.text)
-    // do nothing if bot is on a group
     if (ctx.message.chat.type !== 'private') return
-    // reply to a group chat message (GROUP_ID)
-    // return ctx.telegram.sendMessage(process.env.GROUP_ID, ctx.message.text)
-    return ctx.telegram.sendMessage(process.env.GROUP_ID, ctx.message.text, {parse_mode: "Markdown"})
+    return ctx.telegram.sendMessage(process.env.GROUP_ID, ctx.message.text, { parse_mode: "MarkdownV2" })
 })
 
 bot.on(message('photo'), async (ctx) => {
