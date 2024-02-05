@@ -1,3 +1,12 @@
+// This is a bot that forwards messages to a group chat
+// It is deployed on AWS Lambda and uses the serverless framework
+// It uses the telegraf library to interact with the Telegram Bot API
+// It is triggered by an API Gateway event
+
+// Don't forget import the required libraries
+// and replace "Rising Flare" with the name of the group chat 🙃 
+
+
 const { Telegraf } = require('telegraf')
 const { message } = require('telegraf/filters')
 const dotenv = require('dotenv')
@@ -26,14 +35,18 @@ process.once('SIGINT', () => bot.stop('SIGINT'))
 process.once('SIGTERM', () => bot.stop('SIGTERM'))
 
 bot.on(message('text'), async (ctx) => {
+    // do nothing if bot is on a group
     if (ctx.message.chat.type !== 'private') return
-    return ctx.telegram.sendMessage(process.env.GROUP_ID, ctx.message.text, { parse_mode: "MarkdownV2" })
+    // reply to a group chat message (GROUP_ID)
+    ctx.reply('Your message has been sent to Rising Flare. Have a great day! 🙃')
+    return ctx.telegram.sendMessage(process.env.GROUP_ID, ctx.message.text, { parse_mode: "HTML" })
 })
 
 bot.on(message('photo'), async (ctx) => {
     // do nothing if bot is on a group
     if (ctx.message.chat.type !== 'private') return
     // reply to a group chat message (GROUP_ID)
+    ctx.reply('Your message has been sent to Rising Flare. Have a great day! 🙃')
     return ctx.telegram.sendPhoto(process.env.GROUP_ID, ctx.message.photo[0].file_id)
 })
 
@@ -41,6 +54,7 @@ bot.on(message('video'), async (ctx) => {
     // do nothing if bot is on a group
     if (ctx.message.chat.type !== 'private') return
     // reply to a group chat message (GROUP_ID)
+    ctx.reply('Your message has been sent to Rising Flare. Have a great day! 🙃')
     return ctx.telegram.sendVideo(process.env.GROUP_ID, ctx.message.video.file_id)
 })
 
@@ -48,6 +62,7 @@ bot.on(message('voice'), async (ctx) => {
     // do nothing if bot is on a group
     if (ctx.message.chat.type !== 'private') return
     // reply to a group chat message (GROUP_ID)
+    ctx.reply('Your message has been sent to Rising Flare. Have a great day! 🙃')
     return ctx.telegram.sendVoice(process.env.GROUP_ID, ctx.message.voice.file_id)
 })
 
@@ -55,6 +70,7 @@ bot.on(message('audio'), async (ctx) => {
     // do nothing if bot is on a group
     if (ctx.message.chat.type !== 'private') return
     // reply to a group chat message (GROUP_ID)
+    ctx.reply('Your message has been sent to Rising Flare. Have a great day! 🙃')
     return ctx.telegram.sendAudio(process.env.GROUP_ID, ctx.message.audio.file_id)
 })
 
@@ -62,6 +78,7 @@ bot.on(message('document'), async (ctx) => {
     // do nothing if bot is on a group
     if (ctx.message.chat.type !== 'private') return
     // reply to a group chat message (GROUP_ID)
+    ctx.reply('Your message has been sent to Rising Flare. Have a great day! 🙃')
     return ctx.telegram.sendDocument(process.env.GROUP_ID, ctx.message.document.file_id)
 })
 
@@ -69,6 +86,7 @@ bot.on(message('animation'), async (ctx) => {
     // do nothing if bot is on a group
     if (ctx.message.chat.type !== 'private') return
     // reply to a group chat message (GROUP_ID)
+    ctx.reply('Your message has been sent to Rising Flare. Have a great day! 🙃')
     return ctx.telegram.sendAnimation(process.env.GROUP_ID, ctx.message.animation.file_id)
 })
 
@@ -76,6 +94,7 @@ bot.on(message('contact'), async (ctx) => {
     // do nothing if bot is on a group
     if (ctx.message.chat.type !== 'private') return
     // reply to a group chat message (GROUP_ID)
+    ctx.reply('Your message has been sent to Rising Flare. Have a great day! 🙃')
     return ctx.telegram.sendContact(process.env.GROUP_ID, ctx.message.contact.phone_number, ctx.message.contact.first_name)
 })
 
@@ -83,6 +102,7 @@ bot.on(message('location'), async (ctx) => {
     // do nothing if bot is on a group
     if (ctx.message.chat.type !== 'private') return
     // reply to a group chat message (GROUP_ID)
+    ctx.reply('Your message has been sent to Rising Flare. Have a great day! 🙃')
     return ctx.telegram.sendLocation(process.env.GROUP_ID, ctx.message.location.latitude, ctx.message.location.longitude)
 })
 
