@@ -30,7 +30,8 @@ bot.on(message('text'), async (ctx) => {
     // do nothing if bot is on a group
     if (ctx.message.chat.type !== 'private') return
     // reply to a group chat message (GROUP_ID)
-    return ctx.telegram.sendMessage(process.env.GROUP_ID, ctx.message.text)
+    // return ctx.telegram.sendMessage(process.env.GROUP_ID, ctx.message.text)
+    return ctx.telegram.sendMessage(process.env.GROUP_ID, ctx.message.text, {parse_mode: "Markdown"})
 })
 
 bot.on(message('photo'), async (ctx) => {
