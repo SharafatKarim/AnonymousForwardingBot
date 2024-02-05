@@ -33,6 +33,13 @@ bot.on(message('text'), async (ctx) => {
     return ctx.telegram.sendMessage(process.env.GROUP_ID, ctx.message.text)
 })
 
+bot.on(message('photo'), async (ctx) => {
+    // do nothing if bot is on a group
+    if (ctx.message.chat.type !== 'private') return
+    // reply to a group chat message (GROUP_ID)
+    return ctx.telegram.sendPhoto(process.env.GROUP_ID, ctx.message.photo[0].file_id)
+})
+
 console.log('Bot is running')
 
 exports.bot = bot;
