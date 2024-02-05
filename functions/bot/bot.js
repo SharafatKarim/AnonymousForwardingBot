@@ -39,7 +39,7 @@ bot.on(message('text'), async (ctx) => {
     if (ctx.message.chat.type !== 'private') return
     // reply to a group chat message (GROUP_ID)
     ctx.reply('Your message has been sent to Rising Flare. Have a great day! 🙃')
-    return ctx.telegram.sendMessage(process.env.GROUP_ID, ctx.message.text, { parse_mode: "HTML" })
+    return ctx.telegram.sendMessage(process.env.GROUP_ID, ctx.message.text, { parse_mode: "MarkdownV2" })
 })
 
 bot.on(message('photo'), async (ctx) => {
