@@ -47,6 +47,48 @@ bot.on(message('video'), async (ctx) => {
     return ctx.telegram.sendVideo(process.env.GROUP_ID, ctx.message.video.file_id)
 })
 
+bot.on(message('voice'), async (ctx) => {
+    // do nothing if bot is on a group
+    if (ctx.message.chat.type !== 'private') return
+    // reply to a group chat message (GROUP_ID)
+    return ctx.telegram.sendVoice(process.env.GROUP_ID, ctx.message.voice.file_id)
+})
+
+bot.on(message('audio'), async (ctx) => {
+    // do nothing if bot is on a group
+    if (ctx.message.chat.type !== 'private') return
+    // reply to a group chat message (GROUP_ID)
+    return ctx.telegram.sendAudio(process.env.GROUP_ID, ctx.message.audio.file_id)
+})
+
+bot.on(message('document'), async (ctx) => {
+    // do nothing if bot is on a group
+    if (ctx.message.chat.type !== 'private') return
+    // reply to a group chat message (GROUP_ID)
+    return ctx.telegram.sendDocument(process.env.GROUP_ID, ctx.message.document.file_id)
+})
+
+bot.on(message('animation'), async (ctx) => {
+    // do nothing if bot is on a group
+    if (ctx.message.chat.type !== 'private') return
+    // reply to a group chat message (GROUP_ID)
+    return ctx.telegram.sendAnimation(process.env.GROUP_ID, ctx.message.animation.file_id)
+})
+
+bot.on(message('contact'), async (ctx) => {
+    // do nothing if bot is on a group
+    if (ctx.message.chat.type !== 'private') return
+    // reply to a group chat message (GROUP_ID)
+    return ctx.telegram.sendContact(process.env.GROUP_ID, ctx.message.contact.phone_number, ctx.message.contact.first_name)
+})
+
+bot.on(message('location'), async (ctx) => {
+    // do nothing if bot is on a group
+    if (ctx.message.chat.type !== 'private') return
+    // reply to a group chat message (GROUP_ID)
+    return ctx.telegram.sendLocation(process.env.GROUP_ID, ctx.message.location.latitude, ctx.message.location.longitude)
+})
+
 console.log('Bot is running')
 
 exports.bot = bot;
