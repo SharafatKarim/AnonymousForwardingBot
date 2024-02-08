@@ -27,7 +27,12 @@ bot.start(async ctx => {
 })
 
 bot.help((ctx) => ctx.reply('Send me any messages to forward 🙃.'))
-bot.on(message('sticker'), (ctx) => ctx.reply('Please use emoji 🙃'))
+
+bot.on(message('sticker'), (ctx) => {
+    if (ctx.message.chat.type !== 'private') return
+    ctx.reply('Please use emoji 🙃')
+})
+
 // bot.hears('hi', (ctx) => ctx.reply('Hey there'))
 
 // Enable graceful stop
