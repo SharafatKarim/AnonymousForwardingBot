@@ -6,6 +6,9 @@ This is a simple Telegram bot built with Node.js that forwards all its messages 
 
 > The bot can be hosted on Netlify and is free to use forever in this case. To set up the bot, you only need to configure two environment variables: `BOT_TOKEN` and `GROUP_ID`.
 
+> An updated version of this bot is available, but for *Vercel* serverless, or free forever! Try it out,
+> [Anonymous Forwarding Bot - Vercel](https://github.com/SharafatKarim/AnonymousForwardingBot-Vercel)
+
 ## Prerequisites
 
 Before setting up the Telegram Anonymous Forwarding Bot, make sure you have the following:
